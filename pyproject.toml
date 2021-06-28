@@ -11,6 +11,7 @@ flask-sqlalchemy = "^2.5.1"
 pymysql = "^1.0.2"
 flask-restful = "^0.3.9"
 python-dotenv = "^0.17.1"
+flask-apscheduler = "^1.12.2"
 
 [tool.poetry.dev-dependencies]
 flask-migrate = "^3.0.1"

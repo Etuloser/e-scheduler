@@ -1,7 +1,9 @@
+import logging
 import os
 import time
 
 from flask import Flask
+from flask_apscheduler import APScheduler
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
@@ -11,6 +13,7 @@ timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
 
 class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SCHEDULER_API_ENABLED = True
 
     @staticmethod
     def init_app(app):
@@ -44,6 +47,7 @@ config = {
 }
 
 db = SQLAlchemy()
+scheduler = APScheduler()
 
 
 def create_app(config_name):
@@ -51,6 +55,13 @@ def create_app(config_name):
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
     db.init_app(app)
+
+    scheduler.init_app(app)
+    logging.getLogger("apscheduler").setLevel(logging.INFO)
+    with app.app_context():
+        from app.task import tasks
+        scheduler.start()
+    from app.task import events
 
     api = Api(app)
     from app.auth.views import UserApi, UserListApi

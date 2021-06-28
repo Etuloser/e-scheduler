@@ -34,6 +34,37 @@ url = "http://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "apscheduler"
+version = "3.7.0"
+description = "In-process task scheduler with Cron-like capabilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+
+[package.dependencies]
+pytz = "*"
+six = ">=1.4.0"
+tzlocal = ">=2.0,<3.0"
+
+[package.extras]
+asyncio = ["trollius"]
+doc = ["sphinx", "sphinx-rtd-theme"]
+gevent = ["gevent"]
+mongodb = ["pymongo (>=3.0)"]
+redis = ["redis (>=3.0)"]
+rethinkdb = ["rethinkdb (>=2.4.0)"]
+sqlalchemy = ["sqlalchemy (>=0.8)"]
+testing = ["pytest (<6)", "pytest-cov", "pytest-tornado5", "mock", "pytest-asyncio (<0.6)", "pytest-asyncio"]
+tornado = ["tornado (>=4.3)"]
+twisted = ["twisted"]
+zookeeper = ["kazoo"]
+
+[package.source]
+type = "legacy"
+url = "http://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "autopep8"
 version = "1.5.7"
 description = "A tool that automatically formats Python code to conform to the PEP 8 style guide"
@@ -110,6 +141,24 @@ Werkzeug = ">=2.0"
 [package.extras]
 async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
+
+[package.source]
+type = "legacy"
+url = "http://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
+name = "flask-apscheduler"
+version = "1.12.2"
+description = "Adds APScheduler support to Flask"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+apscheduler = ">=3.2.0,<4.0.0"
+flask = ">=0.10.1"
+python-dateutil = ">=2.4.2"
 
 [package.source]
 type = "legacy"
@@ -343,7 +392,7 @@ reference = "aliyun"
 name = "python-dateutil"
 version = "2.8.1"
 description = "Extensions to the standard Python datetime module"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
@@ -474,6 +523,22 @@ url = "http://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "tzlocal"
+version = "2.1"
+description = "tzinfo object for the local timezone"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pytz = "*"
+
+[package.source]
+type = "legacy"
+url = "http://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "werkzeug"
 version = "2.0.1"
 description = "The comprehensive WSGI web application library."
@@ -512,7 +577,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "6d9b354f5a31f41a0e9f334def0760f501b7ebff145eb7c2300e0c78f359b20c"
+content-hash = "bad023c757d600dd0c411d4c9e2543a96ff91323c2a05cf8fd201413dcd38d71"
 
 [metadata.files]
 alembic = [
@@ -522,6 +587,10 @@ alembic = [
 aniso8601 = [
     {file = "aniso8601-9.0.1-py2.py3-none-any.whl", hash = "sha256:1d2b7ef82963909e93c4f24ce48d4de9e66009a21bf1c1e1c85bdd0812fe412f"},
     {file = "aniso8601-9.0.1.tar.gz", hash = "sha256:72e3117667eedf66951bb2d93f4296a56b94b078a8a95905a052611fb3f1b973"},
+]
+apscheduler = [
+    {file = "APScheduler-3.7.0-py2.py3-none-any.whl", hash = "sha256:c06cc796d5bb9eb3c4f77727f6223476eb67749e7eea074d1587550702a7fbe3"},
+    {file = "APScheduler-3.7.0.tar.gz", hash = "sha256:1cab7f2521e107d07127b042155b632b7a1cd5e02c34be5a28ff62f77c900c6a"},
 ]
 autopep8 = [
     {file = "autopep8-1.5.7-py2.py3-none-any.whl", hash = "sha256:aa213493c30dcdac99537249ee65b24af0b2c29f2e83cd8b3f68760441ed0db9"},
@@ -542,6 +611,9 @@ dataclasses = [
 flask = [
     {file = "Flask-2.0.1-py3-none-any.whl", hash = "sha256:a6209ca15eb63fc9385f38e452704113d679511d9574d09b2cf9183ae7d20dc9"},
     {file = "Flask-2.0.1.tar.gz", hash = "sha256:1c4c257b1892aec1398784c63791cbaa43062f1f7aeb555c4da961b20ee68f55"},
+]
+flask-apscheduler = [
+    {file = "Flask-APScheduler-1.12.2.tar.gz", hash = "sha256:b9fe174b90d201d8beeba5522b023208f7bb6e2583fc02fea4be4bce5ee8f9e5"},
 ]
 flask-migrate = [
     {file = "Flask-Migrate-3.0.1.tar.gz", hash = "sha256:4d42e8f861d78cb6e9319afcba5bf76062e5efd7784184dd2a1cccd9de34a702"},
@@ -735,6 +807,10 @@ typing-extensions = [
     {file = "typing_extensions-3.10.0.0-py2-none-any.whl", hash = "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497"},
     {file = "typing_extensions-3.10.0.0-py3-none-any.whl", hash = "sha256:779383f6086d90c99ae41cf0ff39aac8a7937a9283ce0a414e5dd782f4c94a84"},
     {file = "typing_extensions-3.10.0.0.tar.gz", hash = "sha256:50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"},
+]
+tzlocal = [
+    {file = "tzlocal-2.1-py2.py3-none-any.whl", hash = "sha256:e2cb6c6b5b604af38597403e9852872d7f534962ae2954c7f35efcb1ccacf4a4"},
+    {file = "tzlocal-2.1.tar.gz", hash = "sha256:643c97c5294aedc737780a49d9df30889321cbe1204eac2c2ec6134035a92e44"},
 ]
 werkzeug = [
     {file = "Werkzeug-2.0.1-py3-none-any.whl", hash = "sha256:6c1ec500dcdba0baa27600f6a22f6333d8b662d22027ff9f6202e3367413caa8"},
