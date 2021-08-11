@@ -1,5 +1,6 @@
 from config import scheduler
 
+
 @scheduler.task(
     "interval",
     id="job_sync",
@@ -14,10 +15,17 @@ def task1():
     print("running task 1!")  # noqa: T001
 
     # oh, do you need something from config?
-    with scheduler.app.app_context():
-        print(scheduler.app.config)  # noqa: T001
+    # with scheduler.app.app_context():
+    #     print(scheduler.app.config)  # noqa: T001
 
 
+@scheduler.task(
+    "interval",
+    id="job_sync2",
+    seconds=20,
+    max_instances=1,
+    start_date="2000-01-01 12:19:00",
+)
 def task2():
     """Sample task 2.
     Added when /add url is visited.

@@ -52,7 +52,7 @@ class UserListApi(Resource):
         return jsonify({
             'data': users,
             'message': 'query success.',
-            'code': 102000,
+            'code': 10200,
             'success': True
         })
 
