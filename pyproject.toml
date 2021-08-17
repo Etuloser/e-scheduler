@@ -6,25 +6,9 @@ authors = ["Etuloser <1494136313@qq.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
-Flask = "^2.0.1"
-flask-sqlalchemy = "^2.5.1"
-pymysql = "^1.0.2"
-flask-restful = "^0.3.9"
-python-dotenv = "^0.17.1"
-flask-apscheduler = "^1.12.2"
-pykafka = "^2.8.0"
-loguru = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
-flask-migrate = "^3.0.1"
-flask-sqlacodegen = "^1.1.8"
-autopep8 = "^1.5.7"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[[tool.poetry.source]]
-name = "aliyun"
-default = true
-url = "http://mirrors.aliyun.com/pypi/simple/"
